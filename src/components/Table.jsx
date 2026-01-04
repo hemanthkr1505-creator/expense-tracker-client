@@ -10,13 +10,15 @@ import { Button } from '@mui/material';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../api';
 
 
 export default function ExpenceTable({ allExpenses,fetchAllExpenses}) {
   
     const handleDelete =async(expenseId)=>{
       try {
-        const res=await axios.delete(`http://localhost:7000/api/expense/delete/${expenseId}`
+        const res=await axios.delete(`
+          ${baseUrl}/api/expense/delete/${expenseId}`
 
         );
         //console.log(res.data)
